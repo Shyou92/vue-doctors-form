@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <Form />
-    <ClientCreated />
+    <Form @isUserCreated="createUser($event)" />
+    <ClientCreated @userCreated="closePopup()" :userCreated="userCreated" />
   </div>
 </template>
 
@@ -12,6 +12,19 @@ import ClientCreated from './components/ClientCreated.vue';
 export default {
   name: 'App',
   components: { Form, ClientCreated },
+  data() {
+    return {
+      userCreated: false,
+    };
+  },
+  methods: {
+    createUser(userCreated) {
+      this.userCreated = userCreated;
+    },
+    closePopup() {
+      this.userCreated = false;
+    },
+  },
 };
 </script>
 

@@ -182,13 +182,25 @@
         >
       </div>
     </fieldset>
-    <button class="form__submit">Отправить</button>
+    <button class="form__submit" @click="onSubmit">Отправить</button>
     <span class="form__warning">* Поле, обязательное для заполнения.</span>
   </form>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      userCreated: false,
+    };
+  },
+  methods: {
+    onSubmit(e) {
+      e.preventDefault();
+      this.$emit('isUserCreated', true);
+    },
+  },
+};
 </script>
 
 <style></style>
