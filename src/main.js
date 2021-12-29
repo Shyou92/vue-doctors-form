@@ -1,6 +1,9 @@
 import Vue from 'vue';
 import App from './App.vue';
+import Vuelidate from 'vuelidate';
 import './assets/styles.scss';
+
+Vue.use(Vuelidate);
 
 Vue.config.productionTip = false;
 Vue.config.devtools = true;
