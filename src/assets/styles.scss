@@ -1,0 +1,225 @@
+@import '../vendor/normalize.css';
+@import './variables.scss';
+@import './mixins.scss';
+
+#app {
+  background-color: $lightgrey;
+  position: relative;
+  padding: 10px;
+}
+
+.form {
+  @extend %flexColumnAlignCenter;
+  background-color: $white;
+  border: $border;
+  width: $form-width;
+  margin: 0 auto;
+  padding: 10px;
+  @media screen and (max-width: 1182px) {
+    width: 60%;
+  }
+  @media screen and (max-width: 720px) {
+    width: 70%;
+  }
+
+  .form__container {
+    @extend %flexColumnAlignCenter;
+    border: none;
+    border-bottom: 1px solid $black;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  .form__container:nth-last-of-type(1) {
+    border-bottom: none;
+  }
+
+  .form__itemContainer {
+    @extend %flexColumnAlignCenter, %w60;
+    position: relative;
+    @media screen and (max-width: 1182px) {
+      width: 80%;
+    }
+    @media screen and (max-width: 720px) {
+      width: 90%;
+    }
+  }
+
+  .form__label {
+    @extend %w60;
+    margin-bottom: 5px;
+    font-size: $fontInputSize;
+    text-align: center;
+  }
+
+  .form__item {
+    @extend %w60;
+    margin-bottom: $mb25;
+    border: none;
+    outline: none;
+    font-size: $fontInputSize;
+    border-bottom: 1px solid $black;
+    @media screen and (max-width: 1182px) {
+      margin-bottom: 35px;
+    }
+  }
+
+  .form__selectOption {
+    font-size: $fontInputSize;
+    padding: 0;
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  .form__itemCheckbox {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .form__labelCheck {
+    width: 35%;
+    @media screen and (max-width: 1182px) {
+      width: 60%;
+      margin-right: 5px;
+    }
+  }
+
+  .form__select {
+    margin-bottom: $mb25;
+  }
+
+  .form__submit {
+    margin-top: 15px;
+    align-self: center;
+    width: 15%;
+    height: 30px;
+    background-color: #42b983;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #43b380c2;
+      transition: .3s;
+    }
+
+    @media screen and (max-width: 1490px) {
+      width: 20%;
+      @media screen and (max-width: 1182px) {
+        font-size: 14px;
+      }
+      @media screen and (max-width: 570px) {
+        width: 30%;
+      }
+      @media screen and (max-width: 400px) {
+        width: 40%;
+      }
+    }
+  }
+
+  .form__warning {
+    align-self: flex-end;
+    margin: 10px 5px 5px 0;
+    @media screen and (max-width: 1182px) {
+      align-self: center;
+      margin-right: 0;
+    }
+    @media screen and (max-width: 720px) {
+      font-size: 12px;
+    }
+  }
+
+  .form__select {
+    @extend %overflowHiddenNoOutlinePointer;
+    text-align: center;
+    @media screen and (max-width: 1182px) {
+      margin-bottom: 25px;
+    }
+  }
+
+  .form__selectMultiple {
+    @extend %overflowHiddenNoOutlinePointer, %w60;
+    text-align: center;
+    @media screen and (max-width: 1182px) {
+      margin-bottom: 35px;
+    }
+  }
+
+  .form__itemSms {
+    margin: -5px 0 0 0;
+    width: 5%;
+  }
+
+  .form__selectMultipleError {
+    border-color: $red;
+  }
+
+  .form__error {
+    margin-bottom: .5rem;
+    color: $red;
+    opacity: 0;
+    font-size: 12px;
+    position: absolute;
+    top: 70%;
+    @media screen and (max-width: 1182px) {
+      text-align: center;
+      top: 60%;
+    }
+  }
+
+  .form__errorSelectMultiple {
+    top: 80%;
+    @media screen and (max-width: 1182px) {
+      top: 70%;
+    }
+  }
+
+  .form__inputError {
+    border-bottom-color: $red;
+    transition: .4s;
+  }
+
+  .form__errorActive {
+    transition: .5s;
+    opacity: 1;
+  }
+}
+
+.clientSuccess {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition-property: visibility, opacity;
+  transition-duration: 0.3s;
+  transition-timing-function: linear;
+
+  .clientSuccess__container {
+    width: 20%;
+    background-color: $white;
+    border: $border;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    border-radius: 15px;
+  }
+
+  .clientSuccess__image {
+    cursor: pointer;
+  }
+
+}
+
+.clientSuccess_isOpened {
+  visibility: visible;
+  opacity: 1;
+}
